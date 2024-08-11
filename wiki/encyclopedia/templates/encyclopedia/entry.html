@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+    <a role="button" class="btn btn-primary" href="{% url 'wiki:edit' title%}">Edit Page</a>
+
+    {% if value%}
+        <p>{{value|safe}}</p>
+    {% else %}
+        <h1>Entry Not Found</h1>
+    {% endif %}
+{% endblock %}

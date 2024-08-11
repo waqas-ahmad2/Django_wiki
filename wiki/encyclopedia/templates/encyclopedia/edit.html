@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+
+{% block body %}
+    <form action="{% url 'wiki:edit' title %}" method="POST">
+        {% csrf_token %}
+        <textarea style="resize:none; width: 75vw;" class="textbox_edit" name="textbox" autocomplete="on" spellcheck="True" required>{{value}}</textarea>
+        <div>
+            <input class="btn btn-success mt-2" type="submit" value="submit">
+        </div>
+    </form>
+{% endblock %}

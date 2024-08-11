@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html " %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+
+    <h1>Search Results</h1>
+
+    {% if entries %}
+        <ul>
+            {% for entry in entries %}
+                <li><a href="{% url 'wiki:entry' entry %}">{{entry}}</a></li>
+            {% endfor %}
+        </ul>
+
+    {%else%}
+        <br>
+        <h3>Query didnt match any item, Please try again or create a  <a href="{% url 'wiki:create' %}">new entry</a></h3>
+    {% endif %}
+
+{% endblock %}
